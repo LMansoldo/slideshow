@@ -1,0 +1,26 @@
+@use 'sass:math';
+
+@use './variables' as *;
+
+@function px-to-rem($pixels, $context: $fontSize) {
+	@return math.div($pixels, $context) * 1rem;
+}
+
+@function rem($size, $context: $fontSize) {
+	@if unitless($size) {
+		@return px-to-rem($size * 1px, $context);
+	} @else if unit($size) == 'px' {
+		@return px-to-rem($size, $context);
+	} @else {
+		@warn "Not supported value: #{$value}";
+		@return $size;
+	}
+}
+
+@function css-min($numbers...) {
+	@return #{'min(#{$numbers})'};
+}
+
+@function css-max($numbers...) {
+	@return #{'max(#{$numbers})'};
+}

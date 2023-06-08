@@ -1,0 +1,22 @@
+// #region fonts
+$fontSize: 16px;
+$amplitudeRegular: 'Amplitude Regular', sans-serif;
+$amplitudeLight: 'Amplitude Light', sans-serif;
+$amplitudeMedium: 'Amplitude Medium', sans-serif;
+$amplitudeBold: 'Amplitude Bold', sans-serif;
+$amplitudeWideRegular: 'Amplitude Wide Regular', sans-serif;
+$amplitudeWideLight: 'Amplitude Wide Light', sans-serif;
+$inter: 'Inter', sans-serif;
+// #endregion
+
+//#region breakpoints
+$xs: 0px;
+$sm: theme('screens.sm');
+$md: theme('screens.md');
+$lg: theme('screens.lg');
+$xl: theme('screens.xl');
+$xxl: theme('screens.2xl');
+
+$max-width: $xxl;
+$max-content-width: 1100px;
+// #endregion

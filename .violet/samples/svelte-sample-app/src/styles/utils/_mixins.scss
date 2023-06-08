@@ -1,0 +1,120 @@
+@use './variables' as *;
+
+@mixin pad-content-width($width, $padding: 0) {
+	$inlinePadding: #{'max(calc((100% - #{$width}) / 2), #{$padding})'};
+	padding-left: $inlinePadding;
+	padding-right: $inlinePadding;
+}
+
+@mixin pad-max-page-width($padding: 0) {
+	@include pad-content-width($max-width, $padding);
+}
+
+@mixin pad-max-content-width($padding: 0) {
+	@include pad-content-width($max-content-width, $padding);
+}
+
+@mixin padding-block($padding-top: 0, $padding-bottom: $padding-top) {
+	@supports (padding-block: $padding-top $padding-bottom) {
+		padding-block: $padding-top $padding-bottom;
+	}
+	@supports not (padding-block: $padding-top $padding-bottom) {
+		padding-top: $padding-top;
+		padding-bottom: $padding-bottom;
+	}
+}
+
+@mixin size($width, $height: $width) {
+	min-width: $width;
+	width: $width;
+	max-width: $width;
+	min-height: $height;
+	height: $height;
+	max-height: $height;
+}
+
+@mixin rounded($radius: 999px) {
+	border-radius: $radius;
+	overflow: hidden;
+}
+
+@mixin row {
+	display: flex;
+	flex-direction: row;
+}
+
+@mixin column {
+	display: flex;
+	flex-direction: column;
+}
+
+@mixin center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin columnCenter {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin hidden-input {
+	position: absolute;
+	opacity: 0;
+	width: 1px;
+	height: 1px;
+}
+
+// #region media query
+@mixin media-min($size) {
+	@media screen and (min-width: $size) {
+		@content;
+	}
+}
+
+@mixin media-max($size) {
+	@media screen and (max-width: $size) {
+		@content;
+	}
+}
+
+@mixin media($size) {
+	@include media-min($size) {
+		@content;
+	}
+}
+
+@mixin media-sm {
+	@include media($sm) {
+		@content;
+	}
+}
+
+@mixin media-md {
+	@include media($md) {
+		@content;
+	}
+}
+
+@mixin media-lg {
+	@include media($lg) {
+		@content;
+	}
+}
+
+@mixin media-xl {
+	@include media($xl) {
+		@content;
+	}
+}
+
+@mixin media-xxl {
+	@include media($xxl) {
+		@content;
+	}
+}
+
+// #endregion
